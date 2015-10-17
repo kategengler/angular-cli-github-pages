@@ -1,6 +1,6 @@
 {
-  "name": "ember-cli-github-pages",
-  "description": "Easily manage gh-pages of your ember-cli addon",
+  "name": "angular-cli-github-pages",
+  "description": "Easily manage gh-pages of your angular-cli addon",
   "version": "0.0.6",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/poetic/ember-cli-github-pages",
+  "repository": "https://github.com/IgorMinar/angular-cli-github-pages",
   "engines": {
     "node": ">= 0.10.0"
   },
