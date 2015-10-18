@@ -1,7 +1,7 @@
 {
   "name": "angular-cli-github-pages",
   "description": "Easily manage gh-pages of your angular-cli addon",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "directories": {
     "doc": "doc",
     "test": "tests"
