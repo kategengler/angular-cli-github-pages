@@ -30,8 +30,7 @@
     "ember-data": "1.0.0-beta.12",
     "ember-export-application-global": "^1.0.0",
     "express": "^4.8.5",
-    "glob": "^4.0.5",
-    "inquirer": "^0.10.1"
+    "glob": "^4.0.5"
   },
   "keywords": [
     "ember-addon"
@@ -40,6 +39,7 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "rsvp": "^3.0.14"
+    "rsvp": "^3.0.14",
+    "inquirer": "^0.10.1"
   }
 }
