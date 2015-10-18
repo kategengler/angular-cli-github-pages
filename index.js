@@ -6,7 +6,7 @@ module.exports = {
 
   includedCommands: function() {
     return {
-      'github-pages:commit': require('./lib/commands/commit')
+      'github-pages:deploy': require('./lib/commands/commit')
     };
   }
 };
