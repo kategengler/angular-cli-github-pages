@@ -1,52 +1,26 @@
-# ember-cli-github-pages
+# angular-cli-github-pages
 
-[![npm version](https://badge.fury.io/js/ember-cli-github-pages.svg)](http://badge.fury.io/js/ember-cli-github-pages)
-[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-github-pages.svg)](http://emberobserver.com/addons/ember-cli-github-pages)
-[![Code Climate](https://codeclimate.com/github/poetic/ember-cli-github-pages/badges/gpa.svg)](https://codeclimate.com/github/poetic/ember-cli-github-pages)
-[![Dependency Status](https://david-dm.org/poetic/ember-cli-github-pages.svg)](https://david-dm.org/poetic/ember-cli-github-pages)
-[![devDependency Status](https://david-dm.org/poetic/ember-cli-github-pages/dev-status.svg)](https://david-dm.org/poetic/ember-cli-github-pages#info=devDependencies)
+Angular CLI addon for deploying apps to GitHub pages.
 
+If you need to quickly deploy and redeploy a small Angular 2 app via GitHub pages this angular-cli
+addon is for you!
 
-If you need to throw up a quick example of your addon in action, this is the
-addon for you!
+This addon does the following:
 
-This addon provides new command(s) to help manage a gh-pages branch for your
-addon. It's an addon for addons.
+- creates GitHub repo for the current project if one doesn't exist
+- rebuilds the app at the current `HEAD`
+- creates a local `gh-pages` branch if one doesn't exist
+- moves your app to the `gh-pages` branch and creates a commit
+- pushes the `gh-pages` branch to github
+- returns back to the original `HEAD`
+
 
 ## Installation & Setup
 
-First you need to install ember-cli-github-pages:
-
-ember-cli - 0.2.3 or newer
+Assuming that you have an angular-cli project running, all you need to do is install angular-cli-github-pages:
 
 ```sh
-ember install ember-cli-github-pages
-```
-
-ember-cli - 0.1.5 to 0.2.3
-```sh
-ember install:addon ember-cli-github-pages
-```
-
-ember-cli - 0.1.4 and below
-```sh
-npm install --save-dev ember-cli-github-pages
-ember generate ember-cli-github-pages
-```
-
-In order to have any assets you have in your repo load correctly you need to add the following to your `tests/dummy/config/environment.js` file:
-```javascript
-if (environment === 'production') {
-  ENV.baseURL = '/name-of-your-repo'
-}
-```
-
-Commit these changes `git add -A && git commit -m "Added ember-cli-github-pages addon"`
-
-Then you need to create the gh-pages branch and remove the unnecessary files:
-
-```sh
-git checkout --orphan gh-pages && rm -rf `ls -a | grep -vE '\.gitignore|\.git|node_modules|bower_components|(^[.]{1,2}/?$)'` && git add -A && git commit -m "initial gh-pages commit"
+npm install --save-dev angular-cli-github-pages
 ```
 
 ## Usage
@@ -54,48 +28,28 @@ git checkout --orphan gh-pages && rm -rf `ls -a | grep -vE '\.gitignore|\.git|no
 Once that's done, you can checkout the branch you want to create the gh-page
 from(likely master) and run the command to build and commit it.
 
-Then run ember github-pages:commit --message "some commit message" in order to rebuild gh-pages branch.
+Then run `ng github-pages:deploy` in order to rebuild gh-pages branch and deploy it.
 
 ```sh
 git checkout master
-ember github-pages:commit --message "Initial gh-pages release"
+ng github-pages:deploy --message "Initial gh-pages release"
 ```
 
-### A note about Org and User Pages
+## Authentication
 
-While in general, github repo pages will serve the content in the `gh-pages` branch, [org and user pages](https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages) serve content in the `master` branch. When using this addon to develop a Org or User page, edit your Ember Application on an alternate branch such as `ember`. Once you are ready to build the application and send to GitHub you can either:
+This addon relies on ssh authentication for all git operations that communicate with github.com.
+To simplify the authentication, be sure to (setup your ssh keys](https://help.github.com/articles/generating-ssh-keys/).
 
-* add the `--branch master` option to the `ember github-pages:commit` command
-* make the `gh-pages` branch on your local machine track the master branch on `origin` via the command:
+For repository creation, the addon needs to make a single https call to the GitHub api, for this
+user name and password are requested when the repo is being created.
 
-```sh
-git branch --set-upstream gh-pages origin/master
-```
+Two factor authentication is currently not supported by this addon.
 
-### Advanced Usage
-
-You may optionally specify an ember build environment and a branch name as parameters
-
-```sh
-git checkout master
-ember github-pages:commit --message "Initial demo app release" \
-                          --branch="my-demo-app" \
-                          --environment=development
-```
-| Optional Argument | Default Value | Description |
-|-------------------|---------------|-------------|
-| environment       | `production`  | Ember build environment (i.e., `development`, `production`) |
-| branch            | `gh-pages`    | Branch to commit your app to |
-
-You will still need to push the gh-pages branch up to github using git. Once you
-do that you can access the repo at `http://username.github.io/repo-name`. It may
-take a few minutes after pushing the code to show up. 
 
 ## Authors
 
-- [Jake Craige](http://twitter.com/jakecraige)
-
-[We are very thankful for our many contributors](https://github.com/poetic/ember-cli-github-pages/graphs/contributors)
+- [Igor Minar](http://twitter.com/IgorMinar)
+- Based on ember-cli-github-pages by [Jake Craige](http://twitter.com/jakecraige)
 
 ## Legal
 
