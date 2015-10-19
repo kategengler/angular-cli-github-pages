@@ -17,7 +17,8 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "rsvp": "^3.0.14",
-    "inquirer": "^0.10.1"
+    "fs-extra": "^0.24.0",
+    "inquirer": "^0.10.1",
+    "rsvp": "^3.0.14"
   }
 }
