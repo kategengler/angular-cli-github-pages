@@ -1,7 +1,7 @@
 {
   "name": "angular-cli-github-pages",
   "description": "Easily publish your projects as gh-pages via angular-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/IgorMinar/angular-cli-github-pages",
   "engines": {
     "node": ">= 4.1.0"
